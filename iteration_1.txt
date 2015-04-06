@@ -1,0 +1,9 @@
+Iteration 1
+
+Our Iteration 1 will showcase our running Apache server with minimal functionality. We will show
+a shell of the webpage created in HTML. We will be presenting a few demo apps which can be seen with 
+limited functionality. Application functionality will be expanded in later iterations. We will show 
+a search bar with an engine which is ready to implement, but currently connected to the database. 
+We will have introductory documentation written, outlining what our project does. Finally, we will 
+have shells of several forms written which are not yet linked to the server, but can accept data.
+
