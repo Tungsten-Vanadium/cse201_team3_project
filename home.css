@@ -1,12 +1,21 @@
+#bg {
+  background: -webkit-linear-gradient(bottom,rgba(175,238,238,0),rgba(175,238,238,1)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(top,rgba(175,238,238,0),rgba(175,238,238,1)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(top,rgba(175,238,238,0),rgba(175,238,238,1)); /*Fx 3.6-15*/
+  background: linear-gradient(to top, rgba(175,238,238,0), rgba(175,238,238,1)); /*Standard*/
+}
+
 #top{
 	position: relative;
 }
 
 #search{
 	position: relative;
+	padding: 5px;
 }
 
 #log_in{
 	float: right;
+	padding: 5px;
 }
 
