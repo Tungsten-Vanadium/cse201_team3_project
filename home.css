@@ -23,7 +23,9 @@
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	position: absolute;
 }
+
 li {
     	float: left;
 }
@@ -36,6 +38,16 @@ a {
 	width: 125px;
 	text-align: center;
 	color: white;
+}
+
+a:hover {
+	display: block;
+    	padding: 5px;
+	margin: 5px;
+	background-color: #00ffff;
+	width: 125px;
+	text-align: center;
+	color: black;
 }
 
 
