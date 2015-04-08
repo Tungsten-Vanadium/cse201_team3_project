@@ -1,3 +1,12 @@
-#search {
+#top{
+	position: relative;
+}
+
+#search{
+	position: relative;
+}
+
+#log_in{
 	float: right;
 }
+
