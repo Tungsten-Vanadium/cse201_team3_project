@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+	<title>Application Request Form</title>
+</head>
+<body>
+	<h1>Application Request Form</h1>
+	<form>
+	Name of application:<br>
+	<input type="text" name="appName" required><br>
+	<br>Developers:<br>
+	<input type="text" name="developer" required><br>
+	<br>Platforms:<br>
+	<input type="checkbox" name="platform" value="iOS">Apple<br>
+	<input type="checkbox" name="platform" value="Android">Android<br>
+	<input type="checkbox" name="platform" value="Windows">Windows<br>
+	<input type="checkbox" name="platform" value="Other">Other: <input type="text" name="platformName"><br>
+	<br>Links:<br>
+	<input type="text" name="links" required><br>
+	<br>Versions:<br>
+	<input type="text" name="versions" required><br>
+	<br>Price:<br>
+	<input type="number" name="price" min="0" step="0.01" required><br>
+	<input type="submit" value="Reset Form">
+	</form>
+</body>
+</html>
