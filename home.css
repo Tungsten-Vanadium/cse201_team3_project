@@ -11,10 +11,11 @@
 
 #search{
 	position: relative;
+	width: 300px;
 	padding: 5px;
 }
 
-#log_in{
+#login{
 	float: right;
 	padding: 5px;
 }
@@ -49,5 +50,4 @@ a:hover {
 	text-align: center;
 	color: black;
 }
-
 
