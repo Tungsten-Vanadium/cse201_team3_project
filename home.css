@@ -51,3 +51,40 @@ a:hover {
 	color: black;
 }
 
+#scroll_cont {
+	width:98.5%;
+    	height:291px;
+     	border:2px solid #00ced1;
+	background: #b0c4de;
+	overflow: auto;
+	margin: 5px;
+}
+
+#cont {
+	width: 2000px;
+}
+
+#new_app_float {
+	float: left;
+	border-radius: 25px;
+   	border: 2px solid #00ced1;
+	background: #e0ffff;
+    	padding: 20px; 
+    	width: 300px;
+	height: 250px;
+	margin: 5px;
+	padding: 5px;
+}
+
+p {
+	margin: 5px;
+}
+
+h1 {
+	margin: 5px;
+}
+
+h2 {
+	margin: 5px;
+}
+
