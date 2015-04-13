@@ -1,0 +1,9 @@
+Iteration 2
+
+Our Iteration 2 will showcase our updated website with a functioning application submission form. Users will be able
+to submit an application, which is autmatically approved until the next iteration when Admin and Mod accounts are set up.
+The search bar will be functional for title and description queries of existing apps. The applications will be stored
+in a SQL database with PHP working in the background to communicate with the website. Users will be able to log in to 
+a user account, but the Admin and Mod titles will not yet be created. The user information will be stored in a secure 
+section of a separete SQL database. 
+
