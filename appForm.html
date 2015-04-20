@@ -1,28 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Application Request Form</title>
+    <title>Application Request Form</title>
 </head>
+
 <body>
-	<h1>Application Request Form</h1>
-	<form action="appconf.html" method="get">
-	Name of application:<br>
-	<input type="text" name="appName" required><br>
-	<br>Developers:<br>
-	<input type="text" name="developer" required><br>
-	<br>Platforms:<br>
-	<input type="checkbox" name="platform" value="iOS">Apple<br>
-	<input type="checkbox" name="platform" value="Android">Android<br>
-	<input type="checkbox" name="platform" value="Windows">Windows<br>
-	<input type="checkbox" name="platform" value="Other">Other: <input type="text" name="platformName"><br>
-	<br>Links:<br>
-	<input type="text" name="links" required><br>
-	<br>Versions:<br>
-	<input type="text" name="versions" required><br>
-	<br>Price:<br>
-	<input type="number" name="price" min="0" step="0.01" required><br>
-	<br><input type="submit" value="Submit Request Form">
-	<input type="submit" value="Reset Form">
-	</form>
+    <h1>Application Request Form</h1>
+
+    <form action="appconf.html" method="<?php echo htmlspecialchars($_SERVER["
+		PHP_SELF"]);?>
+        Name of application:<br>
+        <input name="appName" type="text" value="<?php echo $name;?>">
+        <span class="error">* <?php echo $nameErr;?></span><br>
+        <br>
+        Developers:<br>
+        <input name="developer" type="text" value="<?php echo $developer;?>">
+        <span class="error">* <?php echo $developerErr;?></span><br>
+        <br>
+        Platforms:<br>
+        <input name="platform" type="checkbox" value="iOS">Apple<br>
+        <input name="platform" type="checkbox" value="Android">Android<br>
+        <input name="platform" type="checkbox" value="Windows">Windows<br>
+        <input name="platform" type="checkbox" value="Other">Other:
+        <input name="platformName" type="text"><br>
+        <br>
+        Links:<br>
+        <input name="links" type="text" value="<?php echo $link;?>">
+        <span class="error">* <?php echo $linkErr;?></span><br>
+        <br>
+        Versions:<br>
+        <input name="versions" type="number" value="<?php echo $version;?>">
+        <span class="error">* <?php echo $versionErr;?></span><br>
+        <br>
+        Price:<br>
+        <input min="0" name="price" step="0.01" type="number" value=
+        "<?php echo $price;?>"> <span class="error">*
+        <?php echo $priceErr;?></span><br>
+        <br>
+        <input type="submit" value="Submit Request Form"> <input type="submit"
+        value="Reset Form">
+    </form>
 </body>
 </html>
