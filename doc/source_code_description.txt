@@ -1,0 +1,23 @@
+Source Code Description: (Jeremy Schuster)
+
+The first class of our project is the Market Class, which is represented by the various html and php web pages,
+paired with MySQL. The first web page is the index, which contains links to create a new profile, request an app, login,
+and other worth while information. There will also be a php script which pulls the 6 most recent app submissions into a 
+panel for quick view. The index links to the 'request an app' page, which contains a php script for communication
+to the MySQL server. The user can enter the information and then query the server to store the information. When 
+sucessful, the user will be automatically returned to the home page. The user can also access a login and and new user 
+pages, which allow the user to query the server through php scripts in two ways. When creating a profile, the user can
+submit a form and have it entered into the server. When querying the server to login, the user simply enter's their own
+data, and then a php script communicates securely with the server to see if the information is valid. Once logged in, 
+a user will be able to access the 'request an app' page and eventually comment and rate apps.
+
+The Market Class contains applications, which are represented visually in the market by boxes containing the info, and 
+in code in a MySQL table on the server. 
+
+The User class is also represented as a MySQL table, with the Admin and Mod classes, being inhertied from the user class,
+represented by a null value columni in the table. When the value is not null, the user will be able to see and execute the
+commands for each class respectively.
+
+The Review class is represented by the comment and rate features, which are not currently added. However, they will
+eventually be a separate button off of each app which allows the user to visit the comment and rating age for an app,
+and optionally submit thir own comment.
