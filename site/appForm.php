@@ -10,8 +10,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO apps (name, developer, platforms, links, version, price)
-VALUES ($name, $developer, $platform, $link, $version, $price)";
+// TODO: Add platforms as variable
+$sql = "INSERT INTO MyGuests (name, developer, links, version, price)
+VALUES ($name, $developer, $link, $version, $price)";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -20,8 +21,8 @@ if ($conn->query($sql) === TRUE) {
 }
 
 // define variables and set to empty values
-$nameErr = $developerErr = $platformErr = $linkErr = $versionErr = $priceErr = "";
-$name = $developer = $platforms = $link = $version = $price = "";
+$nameErr = $developerErr = $linkErr = $versionErr = $priceErr = "";
+$name = $developer = $link = $version = $price = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    if (empty($_POST["name"])) {
@@ -42,12 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      if (!preg_match("/^[a-zA-Z !';:.,?!-_]*$/",$developer)) {
        $developerErr = "Only letters, punctuation and white space allowed";
      }
-   }
-
-   if (empty($_POST["platforms"])) {
-     $platformErr = "At least one platform is required";
-   } else {
-     $platforms = test_input($_POST["platforms"]);
    }
     
    if (empty($_POST["link"])) {

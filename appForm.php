@@ -1,7 +1,7 @@
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+$servername = "localhost:3306";
+$username = "root";
+$password = "Barlow";
+$dbname = "appstore";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -10,7 +10,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO MyGuests (name, developer, platforms, links, version, price)
+$sql = "INSERT INTO apps (APPname, APPdev, APPplatform, APPlink, APPversion, APPprice)
 VALUES ($name, $developer, $platform, $link, $version, $price)";
 
 if ($conn->query($sql) === TRUE) {

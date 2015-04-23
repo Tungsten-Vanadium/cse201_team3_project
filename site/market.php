@@ -1,26 +1,22 @@
 <?
 
-$con = mysql_connect("localhost","username","password");
+$con = mysql_connect("localhost","root","Barlow");
  
 if (!$con)
 {
   die('Could not connect: ' . mysql_error());
 }
  
-mysql_select_db("app_market", $con); // NAME 'app_market' NEEDS CHANGED
+mysql_select_db("appstore", $con); // NAME 'app_market' NEEDS CHANGED
 
-$key = $_GET['id'];
 
-if( ! is_numeric($key) )
-  die('invalid key');
-
-$query = "SELECT * FROM `info` WHERE `APPid` =$key LIMIT 0 , 30";
+$query = "SELECT * FROM apps"
 
 $info = mysql_query($query);
 
-while($row = mysql_fetch_array($key, MYSQL_ASSOC))
+while($row = mysql_fetch_array($info, MYSQL_ASSOC))
 {
-  $name = htmlspecialchars($row['APPname'],ENT_QUOTES);
+  $name = htmlspecialchars($row['APPname'],ENT _QUOTES);
   $description = htmlspecialchars($row['APPdescription'],ENT_QUOTES);
   $developer = htmlspecialchars($row['APPdev'],ENT_QUOTES);
   $platform = htmlspecialchars($row['APPplatform'],ENT_QUOTES);
@@ -30,7 +26,7 @@ while($row = mysql_fetch_array($key, MYSQL_ASSOC))
   $dateAdded = htmlspecialchars($row['APPdatesubmitted'],ENT_QUOTES);
   $dateUpdated = htmlspecialchars($row['APPdateupdated'],ENT_QUOTES);
   
-  echo "  <div id = "app_float">
+  echo "  <div id = 'app_float'>
       	Name: $name<br />
       	Developers: $developer<br />
 	Description: $description<br />

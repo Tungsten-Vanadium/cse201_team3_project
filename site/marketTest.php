@@ -19,7 +19,7 @@
 		<title>Dev Simple's EOL App Market</title>
 		<link rel="stylesheet" href="market.css">
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-		<
+		
 	</head>
 	
 	<body>
@@ -36,7 +36,7 @@
 		</ul>
 	<div id="cont">
 		<p>Starts Here</p>
-		<?php include dirname(__FILE__) . '/htdocs/site/market.php'; ?>
+		<? php include "market.php"; ?>
 		<p>Ends Here</p>
 	</div>
 	<br>
