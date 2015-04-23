@@ -1,45 +1,49 @@
-<?
 
-$con = mysql_connect("localhost","root","Barlow");
- 
-if (!$con)
-{
-  die('Could not connect: ' . mysql_error());
-}
- 
-mysql_select_db("appstore", $con); // NAME 'app_market' NEEDS CHANGED
+<html>
 
-
-$query = "SELECT * FROM apps"
-
-$info = mysql_query($query);
-
-while($row = mysql_fetch_array($info, MYSQL_ASSOC))
-{
-  $name = htmlspecialchars($row['APPname'],ENT _QUOTES);
-  $description = htmlspecialchars($row['APPdescription'],ENT_QUOTES);
-  $developer = htmlspecialchars($row['APPdev'],ENT_QUOTES);
-  $platform = htmlspecialchars($row['APPplatform'],ENT_QUOTES);
-  $link = htmlspecialchars($row['APPlink'],ENT_QUOTES);
-  $version = htmlspecialchars($row['APPversion'],ENT_QUOTES);
-  $price = htmlspecialchars($row['APPprice'],ENT_QUOTES);
-  $dateAdded = htmlspecialchars($row['APPdatesubmitted'],ENT_QUOTES);
-  $dateUpdated = htmlspecialchars($row['APPdateupdated'],ENT_QUOTES);
-  
-  echo "  <div id = 'app_float'>
-      	Name: $name<br />
-      	Developers: $developer<br />
-	Description: $description<br />
-	Platforms: $platform<br />
-	Link: $link<br />
-	Version: $version<br />
-	Price: $price<br />
-	Date Added: $dateAdded<br />
-	Date Updated: $dateUpdated<br />
-    </div>
-  ";
-}
-
-mysql_close($con);
-
-?>
+<div id="bg">
+	<div id="top">
+		<div id= user_panel>
+			
+		</div>
+		<div id="search">
+			<form>
+				Search our site:<br>
+				<input type="text" name="search">
+				<input type="submit" value="Submit"> 
+			</form>
+		</div>
+		
+	</div>
+	<head>
+		<title>Dev Simple's EOL App Market</title>
+		<link rel="stylesheet" href="market.css">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		
+	</head>
+	
+	<body>
+		<h1>EOL App Market: Market View</h1>
+		<ul id="nav">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="market.html">View Market</a></li>
+			<li><a href="https://itunes.apple.com/us/genre/ios/id36?mt=8">Apple Store</a></li>
+			<li><a href="https://play.google.com/store?hl=en&tab=w8">Google Play</a></li>
+			<li><a href="http://www.amazon.com/mobile-apps/b/ref=mas_surl?ie=UTF8&node=2350149011">Amazon Appstore</a></li>
+			<li><a href="appForm.html">Request an app</a></li>
+			<li><a href="">Contact Us</a></li>
+			<li><a href="">About</a></li>
+		</ul>
+		<br>
+		<br>
+		<br>
+		
+	<div id="cont">
+		<?php include 'market.php';?>
+	</div>
+	<div id="footer">
+	<p id="copy">Copyright 2015, Dev Simple. All rights reserved.</p>
+	</div>
+</body>
+</div>
+</html>

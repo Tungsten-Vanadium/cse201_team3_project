@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html>
 
 <div id="bg">
@@ -34,13 +34,16 @@
 			<li><a href="">Contact Us</a></li>
 			<li><a href="">About</a></li>
 		</ul>
+		<br>
+		<br>
+		<br>
+		
 	<div id="cont">
-		<p>Starts Here</p>
-		<? php include "market.php"; ?>
-		<p>Ends Here</p>
+		<?php include 'market.php';?>
 	</div>
-	<br>
-	<p>Copyright 2015, Dev Simple. All rights reserved.</p>
+	<div id="footer">
+	<p id="copy">Copyright 2015, Dev Simple. All rights reserved.</p>
+	</div>
 </body>
 </div>
 </html>
