@@ -10,7 +10,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO MyGuests (name, developer, platforms, links, version, price)
+$sql = "INSERT INTO apps (name, developer, platforms, links, version, price)
 VALUES ($name, $developer, $platform, $link, $version, $price)";
 
 if ($conn->query($sql) === TRUE) {
