@@ -49,11 +49,11 @@ if (!$conn) {
 }
 
 // define variables and set to empty values
-$nameErr = $developerErr = $platformErr = $linkErr = $versionErr = $priceErr = "";
-$name = $developer = $platform = $link = $version = $price = "";
+$nameErr = $developerErr = $platformErr = $descriptionErr = $linkErr = $versionErr = $priceErr = "";
+$name = $developer = $platform = $description = $link = $version = $price = "";
 
 $sql = "INSERT INTO apps (APPname, APPdev, APPPLATFORM, APPlink, APPversion, APPprice)
-VALUES ($name, $developer, $platform, $link, $version, $price)";
+VALUES ($name, $developer, $platform, $description, $link, $version, $price)";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -66,24 +66,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $nameErr = "App name is required";
    } else {
      $name = test_input($_POST["name"]);
-     // check if name only contains letters and whitespace
-     if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-       $nameErr = "Only letters and white space allowed";
-     }
    }
   
    if (empty($_POST["developer"])) {
      $developerErr = "Developer is required";
    } else {
      $developer = test_input($_POST["developer"]);
-     // check if developer only contains letters, punctuation and whitespace
-     if (!preg_match("/^[a-zA-Z !';:.,?!-_]*$/",$developer)) {
-       $developerErr = "Only letters, punctuation and white space allowed";
-     }
    }
     
    if (empty($_POST["platform"])) {
-     $platformErr = "At least one platform is required";
+     $platformErr = "Platform is required";
    } else {
      $platform = test_input($_POST["platform"]);
    }
@@ -115,6 +107,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	   $priceErr = "Only numbers allowed"; 
 	 }
    }
+   
+   if (empty($_POST["description"])) {
+     $descriptionErr = "Description is required";
+   } else {
+     $description = test_input($_POST["description"]);
+   }
 }
 
 function test_input($data) {
@@ -138,11 +136,7 @@ function test_input($data) {
         <span class="error">* <?php echo $developerErr;?></span><br>
         <br>
         Platforms:<br>
-        <input name="platform" type="checkbox" value="iOS">Apple<br>
-        <input name="platform" type="checkbox" value="Android">Android<br>
-        <input name="platform" type="checkbox" value="Windows">Windows<br>
-        <input name="platform" type="checkbox" value="Other">Other:
-        <input name="platformName" type="text"><br>
+        <input name="platform" type="text" value="<?php echo $platform;?>" required><br>
         <br>
         Links:<br>
         <input name="links" type="text" value="<?php echo $link;?>" required>
@@ -157,6 +151,9 @@ function test_input($data) {
         "<?php echo $price;?>" required>
 		<span class="error">*<?php echo $priceErr;?></span><br>
         <br>
+		Description:<br>
+		<input name="description" type="text" value="<?php echo $description;?>" required>
+		<span class="error">*<?php echo $descriptionErr;?></span><br><br>
 <!--        <input type="submit" value="Submit Request Form"> <input type="submit"
         value="Reset Form"> -->
 		<input type="submit" value="Submit Request Form">
