@@ -1,59 +1,18 @@
-<div id="bg">
-	<div id="top">
-		<div id= user_panel>
-			
-		</div>
-		<div id="search">
-			<form>
-				Search our site:<br>
-				<input type="text" name="search">
-				<input type="submit" value="Submit"> 
-			</form>
-		</div>
-		
-	</div>
-	<head>
-		<title>Dev Simple's EOL App Market</title>
-		<link rel="stylesheet" href="appForm.css">
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-		<script src="appForm.js"></script>
-	</head>
-	
-	<body>
-		<h1>EOL App Market: Request an App</h1>
-		<ul id="nav">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="market.html">View Market</a></li>
-			<li><a href="https://itunes.apple.com/us/genre/ios/id36?mt=8">Apple Store</a></li>
-			<li><a href="https://play.google.com/store?hl=en&tab=w8">Google Play</a></li>
-			<li><a href="http://www.amazon.com/mobile-apps/b/ref=mas_surl?ie=UTF8&node=2350149011">Amazon Appstore</a></li>
-			<li><a href="appForm.html">Request an app</a></li>
-			<li><a href="">Contact Us</a></li>
-			<li><a href="">About</a></li>
-		</ul>
-		<br><br>
-	</body>
-
-
-<body>
-$servername = "localhost:3306";
-$username = "root";
-$password = "Barlow";
-$dbname = "appstore";
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDB";
 
 // Create connection
-$conn = mysql_connect("localhost", "root", "Barlow");
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-if (!$conn) {
-    die("Connection failed: " . mysql_error());
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// define variables and set to empty values
-$nameErr = $developerErr = $platformErr = $descriptionErr = $linkErr = $versionErr = $priceErr = "";
-$name = $developer = $platform = $description = $link = $version = $price = "";
-
-$sql = "INSERT INTO apps (APPname, APPdev, APPPLATFORM, APPlink, APPversion, APPprice)
-VALUES ($name, $developer, $platform, $description, $link, $version, $price)";
+// TODO: Add platforms as variable
+$sql = "INSERT INTO MyGuests (name, developer, links, version, price)
+VALUES ($name, $developer, $link, $version, $price)";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -61,25 +20,31 @@ if ($conn->query($sql) === TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+// define variables and set to empty values
+$nameErr = $developerErr = $linkErr = $versionErr = $priceErr = "";
+$name = $developer = $link = $version = $price = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    if (empty($_POST["name"])) {
      $nameErr = "App name is required";
    } else {
      $name = test_input($_POST["name"]);
+     // check if name only contains letters and whitespace
+     if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+       $nameErr = "Only letters and white space allowed";
+     }
    }
   
    if (empty($_POST["developer"])) {
      $developerErr = "Developer is required";
    } else {
      $developer = test_input($_POST["developer"]);
+     // check if developer only contains letters, punctuation and whitespace
+     if (!preg_match("/^[a-zA-Z !';:.,?!-_]*$/",$developer)) {
+       $developerErr = "Only letters, punctuation and white space allowed";
+     }
    }
     
-   if (empty($_POST["platform"])) {
-     $platformErr = "Platform is required";
-   } else {
-     $platform = test_input($_POST["platform"]);
-   }
-	
    if (empty($_POST["link"])) {
      $linkErr = "Link is required";
    } else {
@@ -107,12 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	   $priceErr = "Only numbers allowed"; 
 	 }
    }
-   
-   if (empty($_POST["description"])) {
-     $descriptionErr = "Description is required";
-   } else {
-     $description = test_input($_POST["description"]);
-   }
 }
 
 function test_input($data) {
@@ -121,43 +80,3 @@ function test_input($data) {
    $data = htmlspecialchars($data);
    return $data;
 }
-
-
-    <h2>Please fill out the following form:</h2>
-	<p><span class="error">* required field.</span></p>
-    <form id="form" action="appconf.html" method="<?php echo htmlspecialchars($_SERVER["
-		PHP_SELF"]);?>
-        Name of application:<br>
-        <input name="appName" type="text" value="<?php echo $name;?>" required>
-        <span class="error">* <?php echo $nameErr;?></span><br>
-        <br>
-        Developers:<br>
-        <input name="developer" type="text" value="<?php echo $developer;?>" required>
-        <span class="error">* <?php echo $developerErr;?></span><br>
-        <br>
-        Platforms:<br>
-        <input name="platform" type="text" value="<?php echo $platform;?>" required><br>
-        <br>
-        Links:<br>
-        <input name="links" type="text" value="<?php echo $link;?>" required>
-        <span class="error">* <?php echo $linkErr;?></span><br>
-        <br>
-        Most current version:<br>
-        <input name="versions" type="number" value="<?php echo $version;?>" required>
-        <span class="error">* <?php echo $versionErr;?></span><br>
-        <br>
-        Price:<br>
-        <input min="0" name="price" step="0.01" type="number" value=
-        "<?php echo $price;?>" required>
-		<span class="error">*<?php echo $priceErr;?></span><br>
-        <br>
-		Description:<br>
-		<input name="description" type="text" value="<?php echo $description;?>" required>
-		<span class="error">*<?php echo $descriptionErr;?></span><br><br>
-<!--        <input type="submit" value="Submit Request Form"> <input type="submit"
-        value="Reset Form"> -->
-		<input type="submit" value="Submit Request Form">
-		<input onclick="resetForm()" type="button" value="Reset">
-    </form>
-</body>
-</html>
