@@ -57,18 +57,16 @@ $usernameErr = $passwordErr = "";
 $user = $_POST['user'];
 $comment = $_POST['comment'];
 
-$sql = "INSERT INTO Login (USERname, USERpass, USERmod, USERadmin)" .
-"VALUES ('$user', '$comment', '0', '0')";
+
+
+$sql = "INSERT INTO Login (USERname, Comment)" .
+"VALUES ('$user', '$comment')";
 
 mysql_select_db($dbname);
 $retval = mysql_query($sql,$conn);
 
 if ($retval) {
 	echo "Comment added successfully";
-   $to = "eolappmarket@gmail.com"; // this is your Email address
-  $subject = "Comment";
-  $message = "A comment has been added (" . $username . "). Check if comment is appropriate.";
-  mail($to,$subject,$message);
 
 } else {
 	die('failed: ' . mysql_error());
@@ -80,16 +78,15 @@ else{
 
 ?>
 
-
-
     <h2>Please fill out the following form:</h2>
 	<p><span class="error">* required field.</span></p>
     <form id="form" action="<?php $_PHP_SELF ?>" method="post">
-        Username:<br>
+	Validate Username:<br>
+        <input name="user" type="text" id="user" required>
+        Comment:<br>
         <input name="comment" type="textarea" id="comment" required>
-        <!--<<span class="error">* <?php echo $nameErr;?></span><br>-->
         <br>
-<!--        <input type="submit" value="Submit Registration Form"> <input type="submit"
+<!--        <input type="submit" value="Submit Comment"> <input type="submit"
         value="Reset Form"> -->
 		<input name="add" type="submit" value="Submit Comment" id="add">
     </form>
