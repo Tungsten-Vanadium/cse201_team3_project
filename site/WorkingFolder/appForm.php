@@ -71,10 +71,29 @@ $retval = mysql_query($sql,$conn);
 
 if ($retval) {
 	echo "App submitted successfully";
-   $to = "eolappmarket@gmail.com"; // this is your Email address
-  $subject = "Form submission";
-  $message = "There has been a new app (" . $name . ") added to the market. Please verify the app and remove is necessary.";
-  mail($to,$subject,$message);
+	$mail = new PHPMailer(true);
+	
+	if($send_using_gmail){
+		$mail->IsSMTP();
+		$mail->SMTPAuth = true;
+		$mail->SMTPSecure = "ssl";
+		$mail->Host = "smtp.gmail.com";
+		$mail->Port = 465;
+		$mail->Username = "eolappmarket@gmail.com"
+		$mail->Password = "positon1";
+		}
+	
+	$mail->ADDaddress($email,$name);
+	$mail->SetFrom($email_from,$name_from);
+	$mail->Subject = "App Added";
+	$mail->Body = "A new app has been added to the database for your approval";
+	
+	try{
+		$mail->Send();
+		echo "Success!";
+	} catch(Exception $e){
+		echo "Failed: " . $mail->ErrorInfo;
+	}
 
 } else {
 	die('failed: ' . mysql_error());

@@ -10,7 +10,7 @@ if (!$con)
 mysql_select_db("appstore", $con); // NAME 'app_market' NEEDS CHANGED
 
 
-$info = mysql_query("SELECT * FROM apps Order BY APPid DESC LIMIT 0 , 6");
+$info = mysql_query("SELECT * FROM apps");
 
 while($row = mysql_fetch_array($info, MYSQL_ASSOC))
 {
