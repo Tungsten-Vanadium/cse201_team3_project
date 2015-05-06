@@ -1,5 +1,7 @@
 <html>
-
+<?php
+session_start();
+?>
 <div id="bg">
 	<div id="top">
 		<div id= login>
@@ -7,10 +9,10 @@
 			<a href="">New User</a>
 		</div>
 		<div id="search">
-			<form>
+			<form method="post" action="searchResult.php">
 				Search our site:<br>
-				<input type="text" name="search">
-				<input type="submit" value="Submit"> 
+				<input type="text" name="APPtitle">
+				<input type="submit" name = "submit" value="Search"> 
 			</form>
 		</div>
 		
@@ -40,11 +42,13 @@
 		<h2>New Additions:</h2>
 		<div id="scroll_cont">
 			<div id="cont">
-				
+				<?php include 'index_market.php';?>
 			</div>
 		</div>
 		<br>
+		<div id="footer">
 		<p>Copyright 2015, Dev Simple. All rights reserved.</p>
+		</div>
 	</body>
 </div>
 </html>
