@@ -57,23 +57,25 @@ $usernameErr = $passwordErr = "";
 $user = $_POST['user'];
 $comment = $_POST['comment'];
 
+$user = $_POST['user'];
+mysql_select_db($dbname,$conn);
+$userSql = "SELECT * FROM login WHERE USERname = '$user' LIMIT 1";
+$userQuery = mysql_query($userSql);
 
+if(mysql_num_rows($userQuery) > 0){
+	$sql = "INSERT INTO comments (USERname, Comment)" .
+		"VALUES ('$user', '$comment')";
+	mysql_select_db($dbname);
+	$retval = mysql_query($sql,$conn);
 
-$sql = "INSERT INTO Login (USERname, Comment)" .
-"VALUES ('$user', '$comment')";
+	if ($retval) {
+		echo "Comment added successfully";
 
-mysql_select_db($dbname);
-$retval = mysql_query($sql,$conn);
-
-if ($retval) {
-	echo "Comment added successfully";
-
-} else {
-	die('failed: ' . mysql_error());
+	} else {
+		die('failed: ' . mysql_error());
+	}
+	mysql_close($conn);
 }
-mysql_close($conn);
-}
-
 else{
 
 ?>

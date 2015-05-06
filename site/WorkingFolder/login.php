@@ -35,7 +35,36 @@ $userQuery = mysql_query($userSql);
 
 if(mysql_num_rows($userQuery) > 0){
 	echo "Login Successful";
-	header("Location: http://127.0.0.1/site/index.php");
+	**CODE TO CHECK ADMIN PRIVELAGE**
+	if(**ADMIN**){
+		$adminSqlA = "SELECT * FROM apps WHERE visible = '0'";
+		$adminQueryA = mysql_query($adminSqlA);
+		$adminSqlB = "SELECT * FROM comments WHERE visible = '0'";
+		$adminQueryB = mysql_query($adminSqlB);
+		if(mysql_num_rows($adminSqlA) > 0){
+			header("Location: http://127.0.0.1/site/appVal.php");
+		}
+		else if(mysql_num_rows($adminSqlB) > 0){
+			header("Location: http://127.0.0.1/site/comVal.php");
+		}
+		else if((mysql_num_rows($adminSqlA)) > 0 && (mysql_num_rows($adminSqlB) > 0)){
+			header("Location: http://127.0.0.1/site/app_comVal.php");
+		}
+		else{
+			header("Location: http://127.0.0.1/site/index.php");
+		}
+	}
+	if(**MOD**){
+                $modSql = "SELECT * FROM comments WHERE visible = '0'";
+		$modQuery = mysql_query($modSql);
+		if(mysql_num_rows($adminSqlB) > 0){
+			header("Location: http://127.0.0.1/site/comVal.php");
+		}
+		else{
+			header("Location: http://127.0.0.1/site/index.php");
+		}
+	}
+}
 	exit();
 }else{
 	echo "Login Failed";
