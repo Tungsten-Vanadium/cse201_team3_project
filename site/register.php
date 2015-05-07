@@ -4,10 +4,10 @@
 			
 		</div>
 		<div id="search">
-			<form>
+			<form method="post" action="searchResult.php">
 				Search our site:<br>
-				<input type="text" name="search">
-				<input type="submit" value="Submit"> 
+				<input type="text" name="APPtitle">
+				<input type="submit" name = "submit" value="Search"> 
 			</form>
 		</div>
 		

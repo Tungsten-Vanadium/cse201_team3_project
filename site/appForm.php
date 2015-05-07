@@ -3,13 +3,6 @@
 		<div id= user_panel>
 			
 		</div>
-		<div id="search">
-			<form>
-				Search our site:<br>
-				<input type="text" name="search">
-				<input type="submit" value="Submit"> 
-			</form>
-		</div>
 		
 	</div>
 	<head>

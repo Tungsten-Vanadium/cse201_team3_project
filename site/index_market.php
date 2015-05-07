@@ -33,10 +33,11 @@ while($row = mysql_fetch_array($info, MYSQL_ASSOC) and $i < 6)
   $dateAdded = htmlspecialchars($row['APPdatesubmitted'],ENT_QUOTES);
   $dateUpdated = htmlspecialchars($row['APPdateupdated'],ENT_QUOTES);
   $visible = htmlspecialchars($row['APPvisible'],ENT_QUOTES);
+  $id = htmlspecialchars($row['APPid'],ENT_QUOTES);
   
   if($visible == 1){
   echo "  <div id='app_float'>
-      	Name: $name<br />
+  <a href='app.php?id=$id'>$name</a><br/>
       	Developers: $developer<br />
 	Description: $description<br />
 	Platforms: $platform<br />

@@ -4,12 +4,8 @@ session_start();
 ?>
 <div id="bg">
 	<div id="top">
-		<div id= login>
-			<a href="login.php">Login</a>	
-			<a href="">New User</a>
-		</div>
 		<div id="search">
-			<form method="post" action="searchResult.php">
+			<form method="post" action="searchResult_user.php">
 				Search our site:<br>
 				<input type="text" name="APPtitle">
 				<input type="submit" name = "submit" value="Search"> 
@@ -42,7 +38,7 @@ session_start();
 		<h2>New Additions:</h2>
 		<div id="scroll_cont">
 			<div id="cont">
-				<?php include 'index_market.php';?>
+				<?php include 'index_market_user.php';?>
 			</div>
 		</div>
 		<br>

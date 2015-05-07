@@ -3,7 +3,7 @@
 <div id="bg">
 	<div id="top">
 		<div id="search">
-			<form method="post" action="searchResult.php">
+			<form method="post" action="searchResult_user.php">
 				Search our site:<br>
 				<input type="text" name="APPtitle">
 				<input type="submit" name = "submit" value="Search"> 
@@ -54,7 +54,7 @@
 				  
 				  echo "  
 				  <div id='app_float'>
-					<a href='app.php?id=$id'>$name</a><br/>
+					<a href='app_user.php?id=$id'>$name</a><br/>
 						Developers: $developer<br />
 					Description: $description<br />
 					Platforms: $platform<br />

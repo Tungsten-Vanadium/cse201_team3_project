@@ -40,7 +40,7 @@ while($row = mysql_fetch_array($info, MYSQL_ASSOC))
   echo "  
   <div id='app_float'>
   
-      	<a href='app.php?id=$id'>$name</a><br/>
+      	<a href='app_user.php?id=$id'>$name</a><br/>
       	Developers: $developer<br />
 	Description: $description<br />
 	Platforms: $platform<br />

@@ -7,10 +7,10 @@
 			
 		</div>
 		<div id="search">
-			<form>
+			<form method="post" action="searchResult_user.php">
 				Search our site:<br>
-				<input type="text" name="search">
-				<input type="submit" value="Submit"> 
+				<input type="text" name="APPtitle">
+				<input type="submit" name = "submit" value="Search"> 
 			</form>
 		</div>
 		
@@ -39,7 +39,7 @@
 		<br>
 		
 	<div id="cont">
-		<?php include 'view_market.php';?>
+		<?php include 'view_market_user.php';?>
 	</div>
 	<div id="footer">
 	<p id="copy">Copyright 2015, Dev Simple. All rights reserved.</p>
