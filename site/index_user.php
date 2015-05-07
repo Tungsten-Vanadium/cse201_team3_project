@@ -6,7 +6,7 @@ session_start();
 	<div id="top">
 		<div id= login>
 			<a href="login.php">Login</a>	
-			<a href="register.php">New User</a>
+			<a href="">New User</a>
 		</div>
 		<div id="search">
 			<form method="post" action="searchResult.php">
@@ -31,8 +31,9 @@ session_start();
 			<li><a href="https://itunes.apple.com/us/genre/ios/id36?mt=8">Apple Store</a></li>
 			<li><a href="https://play.google.com/store?hl=en&tab=w8">Google Play</a></li>
 			<li><a href="http://www.amazon.com/mobile-apps/b/ref=mas_surl?ie=UTF8&node=2350149011">Amazon Appstore</a></li>
-			<li><a href="http://chickenonaraft.com/">Contact Us</a></li>
-			<li><a href="http://www.staggeringbeauty.com/">About</a></li>
+			<li><a href="appForm.php">Request an app</a></li>
+			<li><a href="">Contact Us</a></li>
+			<li><a href="">About</a></li>
 		</ul>
 		<br><br><br>
 		<p>Have you ever wanted to find out what apps were on the Apple Store, Google Play and Amazon Appstore?

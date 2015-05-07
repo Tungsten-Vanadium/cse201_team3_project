@@ -32,6 +32,9 @@ while($row = mysql_fetch_array($info, MYSQL_ASSOC))
   $price = htmlspecialchars($row['APPprice'],ENT_QUOTES);
   $dateAdded = htmlspecialchars($row['APPdatesubmitted'],ENT_QUOTES);
   $dateUpdated = htmlspecialchars($row['APPdateupdated'],ENT_QUOTES);
+  $visible = htmlspecialchars($row['APPvisible'],ENT_QUOTES);
+  
+  if($visible == 1){
   
   echo "  <div id='app_float'>
       	Name: $name<br />
@@ -45,6 +48,7 @@ while($row = mysql_fetch_array($info, MYSQL_ASSOC))
 	Date Updated: $dateUpdated<br />
     </div>
   ";
+}
 }
 
 mysql_close($con);

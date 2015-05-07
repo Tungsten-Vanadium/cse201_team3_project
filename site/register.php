@@ -20,7 +20,7 @@
 	</head>
 	
 	<body>
-		<h1>EOL App Market: Request an App</h1>
+		<h1>EOL App Market: New User Registration</h1>
 		<ul id="nav">
 			<li><a href="index.html">Home</a></li>
 			<li><a href="market.html">View Market</a></li>
@@ -28,8 +28,8 @@
 			<li><a href="https://play.google.com/store?hl=en&tab=w8">Google Play</a></li>
 			<li><a href="http://www.amazon.com/mobile-apps/b/ref=mas_surl?ie=UTF8&node=2350149011">Amazon Appstore</a></li>
 			<li><a href="appForm.html">Request an app</a></li>
-			<li><a href="">Contact Us</a></li>
-			<li><a href="">About</a></li>
+			<li><a href="http://chickenonaraft.com/">Contact Us</a></li>
+			<li><a href="http://www.staggeringbeauty.com/">About</a></li>
 		</ul>
 		<br><br>
 	</body>

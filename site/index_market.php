@@ -10,9 +10,9 @@ if (!$con)
 mysql_select_db("appstore", $con); // NAME 'app_market' NEEDS CHANGED
 
 
-$info = mysql_query("SELECT * FROM apps Order BY APPid DESC LIMIT 0 , 6");
-
-while($row = mysql_fetch_array($info, MYSQL_ASSOC))
+$info = mysql_query("SELECT * FROM apps Order BY APPid DESC");
+$i = 0;
+while($row = mysql_fetch_array($info, MYSQL_ASSOC) and $i < 6)
 {
   $name = $row['APPname'];
   $description = $row['APPdescription'];
@@ -32,7 +32,9 @@ while($row = mysql_fetch_array($info, MYSQL_ASSOC))
   $price = htmlspecialchars($row['APPprice'],ENT_QUOTES);
   $dateAdded = htmlspecialchars($row['APPdatesubmitted'],ENT_QUOTES);
   $dateUpdated = htmlspecialchars($row['APPdateupdated'],ENT_QUOTES);
+  $visible = htmlspecialchars($row['APPvisible'],ENT_QUOTES);
   
+  if($visible == 1){
   echo "  <div id='app_float'>
       	Name: $name<br />
       	Developers: $developer<br />
@@ -45,7 +47,12 @@ while($row = mysql_fetch_array($info, MYSQL_ASSOC))
 	Date Updated: $dateUpdated<br />
     </div>
   ";
+  $i = $i + 1;
 }
+
+}
+
+$i = 0;
 
 mysql_close($con);
 

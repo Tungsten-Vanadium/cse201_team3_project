@@ -22,14 +22,14 @@
 	<body>
 		<h1>EOL App Market: Request an App</h1>
 		<ul id="nav">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="market.html">View Market</a></li>
+			<li><a href="index.php">Home</a></li>
+			<li><a href="WorkingMarket.php">View Market</a></li>
 			<li><a href="https://itunes.apple.com/us/genre/ios/id36?mt=8">Apple Store</a></li>
 			<li><a href="https://play.google.com/store?hl=en&tab=w8">Google Play</a></li>
 			<li><a href="http://www.amazon.com/mobile-apps/b/ref=mas_surl?ie=UTF8&node=2350149011">Amazon Appstore</a></li>
-			<li><a href="appForm.html">Request an app</a></li>
-			<li><a href="">Contact Us</a></li>
-			<li><a href="">About</a></li>
+			<li><a href="appForm.php">Request an app</a></li>
+			<li><a href="http://chickenonaraft.com/">Contact Us</a></li>
+			<li><a href="http://www.staggeringbeauty.com/">About</a></li>
 		</ul>
 		<br><br>
 	</body>
@@ -71,29 +71,7 @@ $retval = mysql_query($sql,$conn);
 
 if ($retval) {
 	echo "App submitted successfully";
-	$mail = new PHPMailer(true);
-	
-	if($send_using_gmail){
-		$mail->IsSMTP();
-		$mail->SMTPAuth = true;
-		$mail->SMTPSecure = "ssl";
-		$mail->Host = "smtp.gmail.com";
-		$mail->Port = 465;
-		$mail->Username = "eolappmarket@gmail.com"
-		$mail->Password = "positon1";
-		}
-	
-	$mail->ADDaddress($email,$name);
-	$mail->SetFrom($email_from,$name_from);
-	$mail->Subject = "App Added";
-	$mail->Body = "A new app has been added to the database for your approval";
-	
-	try{
-		$mail->Send();
-		echo "Success!";
-	} catch(Exception $e){
-		echo "Failed: " . $mail->ErrorInfo;
-	}
+	header ("Location: http://127.0.0.1/site/appconf.html");
 
 } else {
 	die('failed: ' . mysql_error());

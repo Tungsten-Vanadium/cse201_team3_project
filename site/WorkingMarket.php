@@ -30,9 +30,9 @@
 			<li><a href="https://itunes.apple.com/us/genre/ios/id36?mt=8">Apple Store</a></li>
 			<li><a href="https://play.google.com/store?hl=en&tab=w8">Google Play</a></li>
 			<li><a href="http://www.amazon.com/mobile-apps/b/ref=mas_surl?ie=UTF8&node=2350149011">Amazon Appstore</a></li>
-			<li><a href="WorkingAppForm.php">Request an app</a></li>
-			<li><a href="">Contact Us</a></li>
-			<li><a href="">About</a></li>
+			<li><a href="appForm.php">Request an app</a></li>
+			<li><a href="http://chickenonaraft.com/">Contact Us</a></li>
+			<li><a href="http://www.staggeringbeauty.com/">About</a></li>
 		</ul>
 		<br>
 		<br>
