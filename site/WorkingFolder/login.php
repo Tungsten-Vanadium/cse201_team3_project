@@ -35,34 +35,39 @@ $userQuery = mysql_query($userSql);
 
 if(mysql_num_rows($userQuery) > 0){
 	echo "Login Successful";
-	**CODE TO CHECK ADMIN PRIVELAGE**
-	if(**ADMIN**){
-		$adminSqlA = "SELECT * FROM apps WHERE visible = '0'";
+	$adminSql = "SELECT * FROM login WHERE USERname = '$user' and USERadmin = 1"
+	$adminQuery = mysql_query($adminSql);
+	if(mysql_num_rows($adminQuery) > 0){
+		$adminSqlA = "SELECT * FROM apps WHERE APPvisible = '0'";
 		$adminQueryA = mysql_query($adminSqlA);
-		$adminSqlB = "SELECT * FROM comments WHERE visible = '0'";
+		$adminSqlB = "SELECT * FROM reviews WHERE REVvisible = '0'";
 		$adminQueryB = mysql_query($adminSqlB);
-		if(mysql_num_rows($adminSqlA) > 0){
-			header("Location: http://127.0.0.1/site/appVal.php");
+		if((mysql_num_rows($adminSqlA)) > 0 && (mysql_num_rows($adminSqlB) > 0){
+			header("Location: http://127.0.0.1/site/app_comVal.html");
 		}
 		else if(mysql_num_rows($adminSqlB) > 0){
-			header("Location: http://127.0.0.1/site/comVal.php");
+			header("Location: http://127.0.0.1/site/comVal.html");
 		}
-		else if((mysql_num_rows($adminSqlA)) > 0 && (mysql_num_rows($adminSqlB) > 0)){
-			header("Location: http://127.0.0.1/site/app_comVal.php");
+		else if(mysql_num_rows($adminSqlA) > 0)){
+			header("Location: http://127.0.0.1/site/appVal.html");
 		}
 		else{
 			header("Location: http://127.0.0.1/site/index.php");
 		}
 	}
-	if(**MOD**){
-                $modSql = "SELECT * FROM comments WHERE visible = '0'";
+	$modSql = "SELECT * FROM login WHERE USERname = '$user' and USERmod = 1"
+	$modQuery = mysql_query($modSql);*
+	if(mysql_num_rows($modQuery) > 0){
+        $modSql = "SELECT * FROM reviews WHERE REVvisible = '0'";
 		$modQuery = mysql_query($modSql);
 		if(mysql_num_rows($adminSqlB) > 0){
-			header("Location: http://127.0.0.1/site/comVal.php");
+			header("Location: http://127.0.0.1/site/comVal.html");
 		}
 		else{
 			header("Location: http://127.0.0.1/site/index.php");
 		}
+	}else{
+		header("Location: http://127.0.0.1/site/index.php");
 	}
 }
 	exit();
