@@ -26,8 +26,8 @@ session_start();
 	<body>
 		<h1>Welcome to the EOL App Market</h1>
 		<ul id="nav">
-			<li><a href="index.php">Home</a></li>
-			<li><a href="WorkingMarket.php">View Market</a></li>
+			<li><a href="index_user.php">Home</a></li>
+			<li><a href="WorkingMarket_user.php">View Market</a></li>
 			<li><a href="https://itunes.apple.com/us/genre/ios/id36?mt=8">Apple Store</a></li>
 			<li><a href="https://play.google.com/store?hl=en&tab=w8">Google Play</a></li>
 			<li><a href="http://www.amazon.com/mobile-apps/b/ref=mas_surl?ie=UTF8&node=2350149011">Amazon Appstore</a></li>
