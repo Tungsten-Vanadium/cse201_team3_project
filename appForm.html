@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Application Request Form</title>
+<style>
+.error {color: #FF0000;}
+</style>
+<?php include 'appForm.php';?>
+</head>
+
+<body>
+    <h1>Application Request Form</h1>
+    <p><span class="error">* required field.</span></p>
+    <form action="appconf.html" method="<?php echo htmlspecialchars($_SERVER["
+		PHP_SELF"]);?>
+        Name of application:<br>
+        <input name="appName" type="text" value="<?php echo $name;?>">
+        <span class="error">* <?php echo $nameErr;?></span><br>
+        <br>
+        Developers:<br>
+        <input name="developer" type="text" value="<?php echo $developer;?>">
+        <span class="error">* <?php echo $developerErr;?></span><br>
+        <br>
+        Platforms:<br>
+        <input name="platform" type="checkbox" value="iOS">Apple<br>
+        <input name="platform" type="checkbox" value="Android">Android<br>
+        <input name="platform" type="checkbox" value="Windows">Windows<br>
+        <input name="platform" type="checkbox" value="Other">Other:
+        <input name="platformName" type="text"><br>
+        <br>
+        Links:<br>
+        <input name="links" type="text" value="<?php echo $link;?>">
+        <span class="error">* <?php echo $linkErr;?></span><br>
+        <br>
+        Versions:<br>
+        <input name="versions" type="number" value="<?php echo $version;?>">
+        <span class="error">* <?php echo $versionErr;?></span><br>
+        <br>
+        Price:<br>
+        <input min="0" name="price" step="0.01" type="number" value=
+        "<?php echo $price;?>"> <span class="error">*
+        <?php echo $priceErr;?></span><br>
+        <br>
+        <input type="submit" value="Submit Request Form"> <input type="submit"
+        value="Reset Form">
+    </form>
+</body>
+</html>

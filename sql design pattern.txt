@@ -1,0 +1,1 @@
+Mysql is represented by the "Model View Controller" design pattern. The way it is implemented, their is a data structure model running in the background, sql workbench and the php connection provides the view portion of the pattern. And the written sql statements act as the controller. 
